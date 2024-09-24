@@ -1,59 +1,79 @@
 {
     "projects": [
         {
-            "id": 1,
-            "name": "Project name 1",
-            "description": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-            "deployLink": "https://www.airjordan4retro.com/",
-            "repoLink": "https://www.airjordan4retro.com/"
-        },
-        {
-            "id": 2,
-            "name": "Project name 2",
-            "description": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-            "deployLink": "https://www.airjordan4retro.com/",
-            "repoLink": "https://www.airjordan4retro.com/"
+            "id": 4,
+            "name": "Smart Contact Management",
+            "description": "Building a smart contact management system with Spring Boot, Spring Security, and MySQL, making it secure and fast to use.",
+            "deployLink": "https://smartcontactmanager-ev1x.onrender.com/",
+            "repoLink": "https://github.com/KM047/smartContactManager"
         },
         {
             "id": 3,
-            "name": "Project name 3",
-            "description": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-            "deployLink": "https://www.airjordan4retro.com/",
+            "name": "Animal Rescue Webapp",
+            "description": "Developed a React-based web app to streamline animal rescue efforts.",
+            "deployLink": "https://km-animal-rescue-app.vercel.app/",
+            "repoLink": "https://github.com/KM047/My-Blog"
+        },
+        {
+            "id": 2,
+            "name": "Blog Website",
+            "description": "Built a responsive blog platform using React, with Appwrite as the backend service.",
+            "deployLink": "https://km-my-blog.vercel.app/",
             "repoLink": "https://www.airjordan4retro.com/"
         },
         {
-            "id": 4,
-            "name": "Project name 4",
-            "description": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-            "deployLink": "https://www.airjordan4retro.com/",
-            "repoLink": "https://www.airjordan4retro.com/"
+            "id": 1,
+            "name": "The JARVIS - Virtual voice assistant",
+            "description": "Developed a desktop-based virtual voice assistant using Python. Implemented voice command recognition to perform various tasks efficiently.",
+            "repoLink": "https://github.com/KM047/JARVIC-Voice_Assistant"
         }
     ],
 
     "technologies": [
         {
-            "name": "GitHub",
-            "logo": "/github.png"
+            "name": "Java",
+            "logo": "/tech/java.png"
         },
         {
-            "name": "GitHub",
-            "logo": "/github.png"
+            "name": "JavaScript",
+            "logo": "/tech/javascript.png"
         },
         {
-            "name": "GitHub",
-            "logo": "/github.png"
+            "name": "Python",
+            "logo": "/tech/python.png"
         },
         {
-            "name": "GitHub",
-            "logo": "/github.png"
+            "name": "Hibernate",
+            "logo": "/tech/hibernate.png"
         },
         {
-            "name": "GitHub",
-            "logo": "/github.png"
+            "name": "React JS",
+            "logo": "/tech/react.png"
         },
         {
-            "name": "GitHub",
-            "logo": "/github.png"
+            "name": "Node JS",
+            "logo": "/tech/nodejs.png"
+        },
+        {
+            "name": "Spring Boot",
+            "logo": "/tech/spring_boot.png"
+        },
+        {
+            "name": "MySQL",
+            "logo": "/tech/mysql.png"
+        },
+
+        {
+            "name": "HTML",
+            "logo": "/tech/html.png"
+        },
+        {
+            "name": "CSS",
+            "logo": "/tech/css.png"
+        },
+        {
+            "name": "Figma",
+            "logo": "/tech/figma.png"
         }
     ]
 }

@@ -508,7 +508,7 @@ export default function ContactSection() {
                     </p>
                 </motion.div>
             </div>
-            <div className="flex flex-col md:flex-row items-center justify-center py-20 h-screen md:h-auto dark:bg-black bg-white relative w-full">
+            <div className="flex flex-col md:flex-row items-center justify-center py-10 h-screen md:h-auto dark:bg-black bg-white relative w-full">
                 <div className="w-full h-full flex justify-center items-center">
                     <motion.div
                         initial={{

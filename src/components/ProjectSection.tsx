@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BackgroundGradient } from "./ui/background-gradient";
 import userData from "@/data/data.json";
 import Link from "next/link";
@@ -9,12 +9,18 @@ interface Project {
     id: number;
     name: string;
     description: string;
-    deployLink: string;
-    repoLink: string;
+    deployLink?: string;
+    repoLink?: string;
 }
 
 export function ProjectSection() {
     // featured projects
+
+    const [isClient, setIsClient] = useState<boolean | null>(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     const projects: Project[] = userData.projects.reverse();
 
@@ -33,20 +39,29 @@ export function ProjectSection() {
                         <div key={project.id} className="flex justify-center">
                             <BackgroundGradient className="flex flex-col rounded-[22px] bg-white dark:bg-zinc-900 overflow-hidden h-full max-w-sm">
                                 <div className="p-4 sm:p-6 flex flex-col items-center text-center flex-grow">
-                                    <span className="text-lg sm:text-xl text-black mt-4 mb-2 dark:text-neutral-200">
-                                        <LinkPreview
-                                            url={project?.deployLink}
-                                            className="font-bold"
-                                        >
-                                            {project.name}
-                                        </LinkPreview>{" "}
-                                    </span>
-                                    <p className="text-sm text-neutral-600 dark:text-neutral-400 flex-grow">
-                                        {project.description}
-                                    </p>
+                                    {isClient && (
+                                        <div className="text-lg sm:text-xl text-black mt-4 mb-2 dark:text-neutral-200">
+                                            <LinkPreview
+                                                url={
+                                                    project.deployLink ??
+                                                    project.repoLink ??
+                                                    "#"
+                                                }
+                                                className="font-bold"
+                                            >
+                                                {project.name}
+                                            </LinkPreview>
+                                        </div>
+                                    )}
+                                    <ProjectDescription project={project} />
+
                                     <div className="flex justify-end gap-2 w-full mt-4">
                                         <Link
-                                            href={project?.repoLink}
+                                            href={
+                                                project.repoLink ??
+                                                project.deployLink ??
+                                                "#"
+                                            }
                                             target="_blank"
                                         >
                                             <svg
@@ -70,7 +85,11 @@ export function ProjectSection() {
                                             </span>
                                         </Link>
                                         <Link
-                                            href={project?.deployLink}
+                                            href={
+                                                project.deployLink ??
+                                                project.repoLink ??
+                                                "#"
+                                            }
                                             target="_blank"
                                         >
                                             <svg
@@ -109,3 +128,48 @@ export function ProjectSection() {
         </div>
     );
 }
+
+interface ProjectLinkProps {
+    project: Project;
+}
+
+const ProjectLink: React.FC<ProjectLinkProps> = ({ project }) => {
+    const [link, setLink] = useState<string | null>(null);
+
+    useEffect(() => {
+        // Set the link value only on the client-side to prevent hydration mismatch
+        setLink(project.deployLink ?? project.repoLink ?? "#");
+    }, [project.deployLink, project.repoLink]);
+
+    return (
+        <div
+            className="text-lg sm:text-xl text-black mt-4 mb-2 dark:text-neutral-200"
+            suppressHydrationWarning
+        >
+            {link && (
+                <LinkPreview url={link} className="font-bold">
+                    {project.name}
+                </LinkPreview>
+            )}
+        </div>
+    );
+};
+
+const ProjectDescription = ({ project }: { project: Project }) => {
+    const [description, setDescription] = useState<string | null>(null);
+
+    useEffect(() => {
+        // Set link only on the client side to prevent hydration issues
+        setDescription(project.description);
+    }, [project.description]);
+
+    return (
+        <>
+            {description && (
+                <p className="text-sm text-neutral-600 dark:text-neutral-400 flex-grow">
+                    {project.description}
+                </p>
+            )}
+        </>
+    );
+};
