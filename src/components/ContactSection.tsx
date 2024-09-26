@@ -482,7 +482,7 @@ export default function ContactSection() {
 
     return (
         <div>
-            <div className="w-full text-center ">
+            <div className="w-full text-center">
                 <motion.div
                     initial={{
                         opacity: 0,
@@ -508,7 +508,7 @@ export default function ContactSection() {
                     </p>
                 </motion.div>
             </div>
-            <div className="flex flex-col md:flex-row items-center justify-center py-10 h-screen md:h-auto dark:bg-black bg-white relative w-full">
+            <div className="flex flex-col md:flex-row items-center justify-center py-10 min-h-screen md:h-auto dark:bg-black bg-white relative w-full">
                 <div className="w-full h-full flex justify-center items-center">
                     <motion.div
                         initial={{
@@ -525,14 +525,6 @@ export default function ContactSection() {
                         className="div"
                     >
                         <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
-                            {/* <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
-                                Welcome to Aceternity
-                            </h2>
-                            <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
-                                Login to aceternity if you can because we
-                                don&apos;t have a login flow yet
-                            </p> */}
-
                             <form
                                 className="my-8"
                                 ref={formRef}
@@ -596,9 +588,10 @@ export default function ContactSection() {
                     </motion.div>
                 </div>
 
-                <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4 mt-5">
+                <div className="w-full md:w-1/2 mx-auto relative mt-5">
                     <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />
-                    <div className="absolute w-full -bottom-20 h-72 md:h-full z-20">
+                    <div className="relative w-full h-[400px] md:h-[500px] z-20">
+                        {/* Adjust height for mobile */}
                         <World data={sampleArcs} globeConfig={globeConfig} />
                     </div>
                 </div>
